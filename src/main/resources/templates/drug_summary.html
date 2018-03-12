@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Mechanisms</title>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!-- CSS styles for standard search box -->
+    <style type="text/css">
+        table, th, td {
+       border: 1px solid black;
+    }
+
+    .noBorder {
+        border:none !important;
+    }
+    .columnTable{
+        border:none !important;
+    }
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Drug Summary</h4>
+            <table class="drugSummary">
+                <tr>
+                    <td><p>Drug Name </p></td>
+                    <td><p th:text="${DrugSummary.DrugName}" th:value="${DrugSummary.DrugName}"></p></td>
+                </tr>
+                <tr>
+                    <td><p>NamesCode </p></td>
+                    <td>
+                        <table class="columnTable">
+                            <tr th:each="name : ${DrugSummary.NamesCode}">
+                                <td class="noBorder"><p th:text="${name.NameCode}" th:value="${name.NameCode}"></p></td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><p>NamesBrand </p></td>
+
+                    <td>
+                        <table class="columnTable">
+                            <tr th:each="name : ${DrugSummary.NamesBrand}">
+                                <td class="noBorder"><p th:text="${name.NameBrand}" th:value="${name.NameBrand}"></p></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>NamesGeneric </p></td>
+
+                    <td>
+                        <table class="columnTable">
+                            <tr th:each="name : ${DrugSummary.NamesGeneric}">
+                                <td class="noBorder"><p th:text="${name.NameGeneric}" th:value="${name.NameGeneric}"></p></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>MechanismsMolecular </p></td>
+                    <td>
+                        <table class="columnTable">
+                            <tr th:each="name : ${DrugSummary.MechanismsMolecular}">
+                                <td class="noBorder"><p th:text="${name.Mechanism}" th:value="${name.Mechanism}"></p></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>DevelopmentStatusSummary </p></td>
+                    <td>
+                        <table class="columnTable">
+                            <tr>
+                                <td><p>Condition</p></td>
+                                <td><p>Phase Highest</p></td>
+                                <td><p>ConditionInActiveDevelopment</p></td>
+                                <td><p>Year</p></td>
+                                <td><p>Organizations</p></td>
+                                <td><p>AdministrationRoutes</p></td>
+                            </tr>
+                            <tr th:each="row : ${DrugSummary.DevelopmentStatusSummary}">
+                                <td>
+                                    <p th:text="${row.Condition}" th:value="${row.Condition}"></p>
+                                </td>
+                                <td>
+                                    <p th:text="${row.PhaseHighest}" th:value="${row.PhaseHighest}"></p>
+                                </td>
+                                <td>
+                                    <p th:text="${row.ConditionInActiveDevelopment}" th:value="${row.ConditionInActiveDevelopment}"></p>
+                                </td>
+                                <td>
+                                    <p th:text="${row.Year}" th:value="${row.Year}"></p>
+                                </td>
+                                <td>
+                                    <table class="columnTable">
+                                        <tr th:each="org : ${row.Organizations}">
+                                            <td class="noBorder"><p th:text="${org.OrganizationName}" th:value="${org.OrganizationName}"></p></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="columnTable">
+                                        <tr th:each="route : ${row.AdministrationRoutes}">
+                                            <td class="noBorder"><p th:text="${route.AdministrationRouteName}" th:value="${route.AdministrationRouteName}"></p></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>
+
+
+

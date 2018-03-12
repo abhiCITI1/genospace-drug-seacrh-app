@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Mechanisms</title>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!-- CSS styles for standard search box -->
+    <style type="text/css">
+        table, th, td {
+       border: 1px solid black;
+    }
+
+    .mechanismsTab {
+        border: 1px solid #00000003;
+    }
+    .noBorder {
+        border:none !important;
+    }
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h4>Mechanism Details</h4>
+            <table class="mechanismsTab">
+                <tr>
+                    <td class="noBorder"><p>Mechanism Name : </p></td>
+                    <td class="noBorder"><p th:text="${mechanismName}" th:value="${mechanismName}"></p></td>
+                </tr>
+            </table>
+
+            <h4> Associated Drug Names </h4>
+                <tr th:each="drug : ${associatedDrugList}">
+                    <td> <p th:text="${drug}" th:value="${drug}"></p></td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>
+
+
+

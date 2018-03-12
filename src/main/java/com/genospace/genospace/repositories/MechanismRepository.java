@@ -1,0 +1,11 @@
+package com.genospace.genospace.repositories;
+
+import com.genospace.genospace.models.Mechanism;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.io.Serializable;
+
+@Repository
+public interface MechanismRepository extends JpaRepository<Mechanism,Serializable>{
+}
