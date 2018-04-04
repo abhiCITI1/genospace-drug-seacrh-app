@@ -89,8 +89,8 @@
 
 <br>
 <table>
-    <tr th:each="drug : ${drugList}">
-        <td><a href="#" th:text="${drug.drugName}">Title ...</a></td>
+    <tr th:each="item : ${itemList}">
+        <td><a href="#" th:text="${item}">Title ...</a></td>
     </tr>
 </table>
 <div class="container">
@@ -99,15 +99,15 @@
     <div class="row">
 
         <div class="col-md-6">
-            <h3>Drugs</h3>
+            <h3>Items</h3>
             <table id="drugRecords_tab">
             </table>
         </div>
 
         <div class="col-md-6">
-            <h3>Mechanisms</h3>
-            <table id="drugMechanisms_tab">
-            </table>
+            <h3>Item Details</h3>
+            <div id="drugMechanisms_tab">
+            </div>
         </div>
     </div>
 </div>
@@ -131,7 +131,9 @@ $(document).ready(function () {
 
 
         delay(function(){
-            var url = "/searchDrug?item="+searchstring;
+           // var url = "/searchDrug?item="+searchstring;
+
+            var url = "/search?item="+searchstring;
             $.ajax({
                 type: "GET",
                 url: url,
@@ -143,25 +145,21 @@ $(document).ready(function () {
                     var trDrugHTML = '';
                     var trMechHTML = '';
                     $.each(res, function (i, item) {
-                        if(item.mechanism == undefined)
-                        {
-                            trDrugHTML += '<tr><td onclick="fetchTdValue(this.textContent.trim())">' + item.drug + '</td><tr>';
-                        }
-                        if(item.drug ==undefined)
-                        {
-                            trMechHTML += '<tr><td onclick="fetchTdValue(this.textContent.trim())">' + item.mechanism + '</td><tr>';
-                        }
-
-
+                        //if(item.mechanism == undefined)
+                        //{
+                        //    trDrugHTML += '<tr><td onclick="fetchTdValue(this.textContent.trim())">' + item.drug + '</td><tr>';
+                        //}
+                        //if(item.drug ==undefined)
+                        //{
+                        //    trMechHTML += '<tr><td onclick="fetchTdValue(this.textContent.trim())">' + item.mechanism + '</td><tr>';
+                        //}
+                        trDrugHTML+='<tr><td onclick="fetchDetails(this.textContent.trim())">' + item.itemName + '</td><tr>';
                     });
                     $("#drugRecords_tab").empty();
                     $("#drugMechanisms_tab").empty();
                     $('#drugRecords_tab').append(trDrugHTML);
-                    $('#drugMechanisms_tab').append(trMechHTML);
-
-
-
-            },
+                    //$('#drugMechanisms_tab').append(trMechHTML);
+                },
             error: function(e){
                 console.log(e);
                 alert('Error: ' + e);
@@ -174,6 +172,32 @@ $(document).ready(function () {
 function fetchTdValue(tdValue){
         document.getElementById("textId").value  = tdValue;
     }
+
+
+function fetchDetails(tdValue){
+
+    var url = "/showRecord?item="+tdValue;
+            $.ajax({
+                dataType: 'json',
+                type: "GET",
+                url: url,
+                success: function(data){
+
+                    console.log(data);
+
+                    var trMechHTML = data;
+
+
+                    $('#drugMechanisms_tab').html(JSON.stringify(data));
+                },
+            error: function(e){
+                console.log(e);
+                alert('Error: ' + e);
+                }
+            });
+
+
+}
 
 
 

@@ -35,6 +35,7 @@ public class Drug {
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "drug")
     private List<MechanismMolecular> mechanismMoleculars;
 
+
     public List<NamesCode> getNamesCodes() {
         return namesCodes;
     }

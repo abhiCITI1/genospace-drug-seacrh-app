@@ -40,4 +40,16 @@ public class DrugSearchServiceImpl implements DrugSearchService{
         List<Mechanism> mechanisms = mechanismRepository.findAll();
         return mechanisms;
     }
+
+    @Override
+    public Drug findByDrugName(String name) {
+        Drug drug = drugRepository.findByDrugName(name);
+        return drug;
+    }
+
+    @Override
+    public Mechanism findByMechanismName(String name) {
+        Mechanism mechanism = mechanismRepository.findByMechanismName(name);
+        return mechanism;
+    }
 }

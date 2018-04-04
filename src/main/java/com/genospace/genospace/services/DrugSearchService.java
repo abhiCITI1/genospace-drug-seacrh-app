@@ -13,5 +13,7 @@ public interface DrugSearchService {
     public Drug findMechanism(int id);
     public List<Drug> findDrugs();
     public List<Mechanism> findMechanisms();
+    public Drug findByDrugName(String name);
+    public Mechanism findByMechanismName(String name);
 
 }

@@ -5,12 +5,17 @@ com/genospace/genospace/services/DrugSearchService.class
 com/genospace/genospace/models/MechanismMolecular.class
 com/genospace/genospace/GenospaceApplication.class
 com/genospace/genospace/repositories/DrugRepository.class
+com/genospace/genospace/services/SearchItemService.class
 com/genospace/genospace/models/NamesGeneric.class
 com/genospace/genospace/models/AdministrationRoute.class
+com/genospace/genospace/models/SearchItem_.class
 com/genospace/genospace/services/DrugSearchServiceImpl.class
 com/genospace/genospace/models/MechanismMolecular_.class
+com/genospace/genospace/models/SearchItem.class
 com/genospace/genospace/models/Drug.class
+com/genospace/genospace/repositories/SearchItemRepository.class
 com/genospace/genospace/models/NamesCode.class
+com/genospace/genospace/services/SearchItemServiceImpl.class
 com/genospace/genospace/models/NamesBrand.class
 com/genospace/genospace/models/Organization.class
 com/genospace/genospace/models/AdministrationRoute_.class
